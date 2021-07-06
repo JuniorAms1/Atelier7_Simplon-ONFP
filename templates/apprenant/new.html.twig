@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouveau Apprenant{% endblock %}
+
+{% block body %}
+<div class="text-center">
+<div class="jumbotron">
+    <h1>Bienvenue dans notre environnement de manipulation d'apprenants</h1>
+    <p>Cette page nous permet de créer un Nouveau Apprenant</p>
+</div>
+
+
+    {{ include('apprenant/_form.html.twig') }}
+<br><br>
+  <button class="btn btn-warning">  <a href="{{ path('apprenant_index') }}" style="color:#fff;text-decoration:none">Voir la liste</a></button>
+</div>
+{% endblock %}

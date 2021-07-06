@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Apprenant{% endblock %}
+
+{% block body %}
+<div class="text-center">
+<div class="jumbotron">
+    <h1>Bienvenue dans notre environnement de manipulation d'apprenants</h1>
+     <p>Cette page nous permet d'afficher les infos d'un apprenant</p>
+</div>
+ 
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ apprenant.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ apprenant.nom }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ apprenant.prenom }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ apprenant.email }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ apprenant.adresse }}</td>
+            </tr>
+            <tr>
+                <th>Niveau</th>
+                <td>{{ apprenant.niveau }}</td>
+            </tr>
+            <tr>
+                <th>Attentes</th>
+                <td>{{ apprenant.attentes }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <button class="btn btn-warning"> <a href="{{ path('apprenant_index') }}" style="color:#fff;text-decoration:none">Voir la liste</a></button>
+    <br>
+<br>
+    <button class="btn btn-success"> <a href="{{ path('apprenant_edit', {'id': apprenant.id}) }}" style="color:#fff;text-decoration:none">Editer</a></button>
+<br><br>
+    {{ include('apprenant/_delete_form.html.twig') }}
+    </div>
+{% endblock %}

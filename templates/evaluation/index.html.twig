@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Evaluation index{% endblock %}
+
+{% block body %}
+<div class="jumbotron text-center">
+    <h1>Bienvenue dans notre environnement d'évaluations</h1>
+</div>
+
+   
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Discipline</th>
+                <th>Categorie</th>
+                <th>Note</th>
+                <th>Apprenant</th>
+                 <th>Nom_Apprenant</th>
+                  <th>Prénom_Apprenant</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for evaluation in evaluations %}
+            <tr>
+                <td>{{ evaluation.id }}</td>
+                <td>{{ evaluation.discipline }}</td>
+                <td>{{ evaluation.categorie }}</td>
+                <td>{{ evaluation.note }}</td>
+                <td>{{ evaluation.apprenant.id}}</td>
+                <td>{{ evaluation.apprenant.nom}}</td>
+                <td>{{ evaluation.apprenant.prenom}}</td>
+                
+                <td>
+                   <button class="btn btn-primary"> <a href="{{ path('evaluation_show', {'id': evaluation.id}) }}" style="color:#fff;text-decoration:none;">Consulter</a></button>
+                   <button class="btn btn-success"> <a href="{{ path('evaluation_edit', {'id': evaluation.id}) }}" style="color:#fff;text-decoration:none;">Editer</a></button>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">Pas encore d'enregistrement </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+<p class="text-center">
+  <button class="btn btn-warning"> <a href="{{ path('evaluation_new') }}" style="color:#fff;text-decoration:none">Créer Evaluation</a></button>
+  </p>
+{% endblock %}

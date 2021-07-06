@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouveau Evaluation{% endblock %}
+
+{% block body %}
+<div class="text-center">
+<div class="jumbotron ">
+    <h1>Evaluation</h1>
+    <p>Cette Page permet de créer une Evaluation pour nos apprenants </p>
+</div>
+
+
+    {{ include('evaluation/_form.html.twig') }}
+<br><br>
+   <button class="btn btn-success"> <a href="{{ path('evaluation_index') }}" style="color:#fff;text-decoration:none" >Voir la liste</a></button>
+   </div>
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Apprenants{% endblock %}
+
+{% block body %}
+<div class="text-center">
+<div class="jumbotron">
+    <h1>Bienvenue dans notre environnement de visualisation de la liste des apprenants</h1>
+</div>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Email</th>
+                <th>Adresse</th>
+                <th>Niveau</th>
+                <th>Attentes</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for apprenant in apprenants %}
+            <tr>
+                <td>{{ apprenant.id }}</td>
+                <td>{{ apprenant.nom }}</td>
+                <td>{{ apprenant.prenom }}</td>
+                <td>{{ apprenant.email }}</td>
+                <td>{{ apprenant.adresse }}</td>
+                <td>{{ apprenant.niveau }}</td>
+                <td>{{ apprenant.attentes }}</td>
+                <td>
+                  <button class="btn btn-primary">  <a href="{{ path('apprenant_show', {'id': apprenant.id}) }}" style="color:#fff;text-decoration:none">Consulter</a></button>
+                   <button class="btn btn-success"> <a href="{{ path('apprenant_edit', {'id': apprenant.id}) }}" style="color:#fff;text-decoration:none">Editer</a></button>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">Aucun enregistrement trouvé</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+   <button class="btn btn-warning"> <a href="{{ path('apprenant_new') }}" style="color:#fff;text-decoration:none">Créer Apprenant</a></button>
+    </div>
+{% endblock %}
