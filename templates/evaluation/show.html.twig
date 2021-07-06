@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Visualisation Evaluation{% endblock %}
+
+{% block body %}
+<div class="text-center container-fluid">
+<div class="jumbotron text-center">
+    <h1>Evaluation</h1>
+    <p>Cette Page affiche les détails de l'évaluation de l'apprenant </p>
+</div>
+    
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ evaluation.id }}</td>
+            </tr>
+            <tr>
+                <th>Discipline</th>
+                <td>{{ evaluation.discipline }}</td>
+            </tr>
+            <tr>
+                <th>Categorie</th>
+                <td>{{ evaluation.categorie }}</td>
+            </tr>
+            <tr>
+                <th>Note</th>
+                <td>{{ evaluation.note }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+   <button class="btn btn-warning"> <a href="{{ path('evaluation_index') }}" style="color:#fff;text-decoration:none;">Voir la liste</a></button>
+
+      <button class="btn btn-success"><a href="{{ path('evaluation_edit', {'id': evaluation.id}) }}" style="color:#fff;text-decoration:none;">Editer</a></button>
+<br><br>
+    {{ include('evaluation/_delete_form.html.twig') }}
+    </div>
+{% endblock %}
